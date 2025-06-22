@@ -1,75 +1,125 @@
-# Bluestock-node.js-stack
-IPO Tracker API
-Overview
-IPO Tracker is a Node.js REST API for tracking and managing Initial Public Offerings (IPOs). The API provides comprehensive endpoints for managing companies, IPOs, and related documents. Built with Express.js, TypeScript, and PostgreSQL, it offers a robust backend solution for IPO data management that can be consumed by any frontend application or external service.
+📘 Bluestock-node.js-stack: IPO Tracker API
+A Node.js REST API for tracking and managing Initial Public Offerings (IPOs). Built with Express.js, TypeScript, and PostgreSQL, it serves as a powerful backend for IPO data management, suitable for any frontend app or external service.
 
-System Architecture
-API Architecture
+🧱 System Architecture
 Runtime: Node.js with Express.js framework
-Language: TypeScript with ES modules
-Database: PostgreSQL with Drizzle ORM
-Authentication: Passport.js with local strategy and session-based auth
-File Uploads: Multer for handling file uploads (logos, PDFs)
-Session Storage: PostgreSQL-backed sessions using connect-pg-simple
-Database Architecture
-ORM: Drizzle ORM with PostgreSQL dialect
-Migration Strategy: Schema-first approach with generated migrations
-Connection: Neon serverless PostgreSQL with connection pooling
-Key Components
-Data Models
-Users: Authentication and authorization
-Companies: Company information and logos
-IPOs: Complete IPO lifecycle tracking (Upcoming → Open → Closed → Listed)
-Documents: RHP and DRHP PDF storage and management
-Authentication System
-Session-based authentication using Passport.js
-Password hashing with Node.js crypto (scrypt)
-PostgreSQL session storage for scalability
-Protected routes for admin functionality
-File Management
-Organized file storage in uploads/ directory
-Separate subdirectories for logos, documents, and miscellaneous files
-File type validation (images for logos, PDFs for documents)
-Static file serving for uploaded content
-API Structure
-RESTful API design with clear endpoint separation
-Public endpoints for IPO data viewing
-Protected admin endpoints for CRUD operations
-Comprehensive error handling and validation
-Data Flow
-Public API Flow: External applications can browse IPOs by status, view company information, and access documents
-Admin API Flow: Authenticated requests can create/edit companies, manage IPOs, and upload documents
-File Upload Flow: Multer handles file uploads with validation, stores files in organized directories
-Database Flow: Drizzle ORM manages all database interactions with type safety
-External Dependencies
-Core Technologies
-Database: Neon serverless PostgreSQL
-File Storage: Local filesystem with organized directory structure
-UI Components: Radix UI primitives for accessibility
-Validation: Zod for runtime type checking and validation
-Development Tools
-TypeScript: Full type safety across the API
-ESBuild: Fast bundling for production
-TSX: Development server with hot reload
-Deployment Strategy
-Development Environment
-TSX for API development with hot reload
-Simple Node.js API server startup
-Production Build
-ESBuild creates bundled Node.js application
-Static file serving for uploaded content
-Environment Configuration
-Database URL configuration for PostgreSQL connection
-Session secret for authentication security
-File upload paths and validation settings
-Replit Integration
-Configured for Replit's PostgreSQL module
-Automatic port configuration and deployment
-Development and production workflow support
-Changelog
-June 22, 2025: Initial full-stack setup
-June 22, 2025: Converted to Node.js backend-only API per user request
-User Preferences
-Focus on Node.js backend development only
-No frontend components
-Preferred communication style: Simple, everyday language
+
+Language: TypeScript (ES Modules)
+
+Database: PostgreSQL (via Drizzle ORM)
+
+Authentication: Passport.js (Local Strategy, Session-based)
+
+File Uploads: Multer (for logos & PDFs)
+
+Session Storage: PostgreSQL (via connect-pg-simple)
+
+🗃️ Database Architecture
+ORM: Drizzle ORM (PostgreSQL dialect)
+
+Migration Strategy: Schema-first with auto-generated migrations
+
+Connection: Neon (serverless PostgreSQL with connection pooling)
+
+🧩 Key Components
+🔐 Authentication System
+Session-based login using Passport.js
+
+Password hashing with crypto.scrypt
+
+PostgreSQL-backed session storage
+
+Protected routes for admin-only access
+
+🏢 Data Models
+Users: Handles login and roles
+
+Companies: Stores company data and logos
+
+IPOs: Tracks full lifecycle (Upcoming → Open → Closed → Listed)
+
+Documents: Manages RHP/DRHP PDFs
+
+📁 File Management
+Uploads stored in /uploads/ directory
+
+logos/, documents/, misc/ subfolders
+
+File type validation (Images for logos, PDFs for documents)
+
+Static file serving enabled
+
+🌐 API Structure
+RESTful Design: Clean separation of routes
+
+Public Endpoints:
+
+View IPOs by status
+
+Browse companies
+
+Download documents
+
+Admin Endpoints:
+
+Create/edit companies
+
+Manage IPOs
+
+Upload files
+
+Error Handling: Comprehensive with validation
+
+🔄 Data Flow
+Public Flow:
+External apps can query IPO status, company info, documents
+
+Admin Flow:
+Authenticated admins manage companies, IPOs, and uploads
+
+File Upload Flow:
+Handled by Multer → Validated → Stored in organized directories
+
+Database Flow:
+Drizzle ORM handles all operations with full type safety
+
+🔌 External Dependencies
+Database: Neon (Serverless PostgreSQL)
+
+Storage: Local filesystem
+
+UI Tools (Internal Admin use): Radix UI primitives
+
+Validation: Zod (runtime schema validation)
+
+⚙️ Development Tools
+TypeScript: Type safety everywhere
+
+TSX: Dev server with hot reload
+
+ESBuild: For fast production bundling
+
+🚀 Deployment Strategy
+Development
+Run using TSX with hot reload
+
+.env for config (DB URL, session secret, file paths)
+
+Production
+Build with ESBuild
+
+Serve uploaded files statically
+
+Supports deployment on platforms like Replit
+
+📝 Changelog
+June 22, 2025:
+
+Initial full-stack setup
+
+Converted to backend-only API (as per user request)
+
+👤 User Preferences
+Focus: Backend only (no frontend)
+
+Style: Simple, everyday language
